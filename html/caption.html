@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+    <style>
+		table, th, td { border: 1px solid pink; }
+        table { border-collapse: collapse; } // 표 분리/테두리선 두 줄을 한 줄로
+	</style>
+</head>
+<body>
+    <table>
+        <caption>분식</caption>
+        <tr>
+            <th>밥류</th>
+            <th>면류</th>
+            <th>분식류</th>
+        </tr>
+		<tr>
+			<td>김밥</td>
+			<td>라면</td>
+			<td>떡볶이</td>		
+		</tr>
+		<tr>
+			<td>주먹밥</td>
+			<td>우동</td>		
+			<td>순대</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+// <caption>은 테이블의 테이블이나 사진, 삽화 등에 붙는 설명을 정의할 때 사용
+// <table>은 단 하나의 <caption>만 명시 가능
+// <caption>은 언제나 <table> 바로 다음에 위치
+// <caption> 콘텐츠는 테이블 바로 위쪽에 가운데 정렬 되지만 text-align, caption-side 이용해 정렬, 위치 변경 가능
