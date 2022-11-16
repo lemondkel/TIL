@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1>console.log() 메소드</h1>
+
+	<p>F12를 눌러서 콘솔 화면을 열면 결과를 확인할 수 있습니다.</p>
+	<script>
+		console.log(4 * 5);
+	</script>
+
+</body>
+</html>
+
+// console.log() 메소드는 웹 브라우저의 콘솔을 통해 데이터 출력
+// 대부분 웹 브라우저에서는 F12 눌러서 콘솔 화면 사용 가능
