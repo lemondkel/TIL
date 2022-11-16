@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <colgroup>
+            <col style="background-color: pink">
+            <col span="2" style="background-color: violet">
+        </colgroup>
+		<tr>
+			<th>학번</th>
+            <th>이름</th>
+            <th>학과</th>
+		</tr>
+		<tr>
+			<td>2001</td>
+			<td>가나다</td>
+			<td>소프트웨어공학과</td>
+		</tr>
+        <tr>
+			<td>2002</td>
+			<td>abc</td>		
+			<td>컴퓨터정보공학과</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+// <col>은 <colgroup> 요소에 속하는 각 열의 속성 정의할 때 사용
+// 각 행이나 셀의 스타일을 반복하지 않고, 열마다 각각 다른 스타일 적용 가능 
+// HTML5에서는 span 속성 제외한 <col> 태그의 대부분 속성들 더 이상 지원X
