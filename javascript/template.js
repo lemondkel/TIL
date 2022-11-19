@@ -3,7 +3,7 @@ let month = 10;
 let day = 11;
 
 console.log('생년월일은' + year + '년' + month + '월' + day + '일 입니다.');
-console.log('생년월일은 ${year}년 ${month}월 ${day}일 입니다');
+console.log(`생년월일은 ${year}년 ${month}월 ${day}일 입니다`);
 // 같게 출력됨
 
 let myNumber = 3;
