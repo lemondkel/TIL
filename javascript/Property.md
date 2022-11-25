@@ -149,13 +149,14 @@ Color-2
 ```
 ### ● console창
 ```    
-    Red
-    Orange
-    Yellow
-    Green
-    Blue
-    Navy
-    Purple
+    <li>Red</li>
+    <li>Orange</li>
+    <li>Yellow</li>
+    <li>Green</li>
+    <li>Blue</li>
+    <li>Navy</li>
+    <li>Purple</li>
+    
 ```
 &nbsp;
 &nbsp;
@@ -231,13 +232,13 @@ Color-2
 
 ### ● console창
 ```    
-    <li>Red</li>
-    <li>Orange</li>
-    <li>Yellow</li>
-    <li>Green</li>
-    <li>Blue</li>
-    <li>Navy</li>
-    <li>Purple</li>
+    Red
+    Orange
+    Yellow
+    Green
+    Blue
+    Navy
+    Purple
 ```
 
 &nbsp;  
