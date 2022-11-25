@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오늘 할 일</title>
+</head>
+<style>
+
+    .done {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+    
+    </style>
+
+
+<body>
+  <div class="main">
+    <h2 class="title">오늘 할 일</h2>
+    <ul id="to-do-list" class="to-do-list">
+      <li>자바스크립트 공부하기</li>
+      <li>블로그 올리기</li>
+      <li>운동하기</li>
+    </ul>
+  </div>
+</body>
+
+<script>
+
+const toDoList = document.querySelector('#to-do-list');
+const items = toDoList.children;
+
+function update(event){
+    event.target.classList.toggle('done');
+}
+for(let item of items){
+    item.addEventListener('click', update);
+}
+
+items[2].removeEventListener('click', update);
+</script>
+</html>
