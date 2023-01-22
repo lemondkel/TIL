@@ -1,41 +1,78 @@
+import e from "express";
 import { createStore } from "redux";
 
-const add = document.getElementById("add");
-const minus = document.getElementById("minus");
-const number = document.querySelector("span");
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
 
-number.innerText = 0;
+const ADD_TODO = "ADD_TODO";
+const DELETE_TODO = "DELETE_TODO";
 
-const countModifier = (count = 0, action) => { // 얘만 data를 modify 가능
-  // 여기서 count는 state임 
-  if (action.type === "ADD") {
-    return count + 1;
-  } else if (action.type === "MINUS") {
-    return count - 1;
-  } else {
-    return 0; // hello라고 리턴하면 우리의 앱의 data가 됨
+const addToDo = (text) => {
+  return {
+    type: ADD_TODO,
+    text
+  };
+};
+
+const deleteToDo = (id) => {
+  return {
+    type: DELETE_TODO,
+    id,
+  };
+}
+
+const reducer = (state = [], action) => {
+  // console.log(action);
+  switch (action.type) {
+    case ADD_TODO:
+      return [{ text: action.text, id: Date.now() }, ...state]; // 절대 mutate 하지마!!의 에시 -> 바꾸지 말고 새거 만들어서 리턴해라!!
+    case DELETE_TODO:
+      return state.filter(toDo => toDo !== action.id);
+    default:
+      return state;
   }
 };
-const countStore = createStore(countModifier);
 
-const onChange = () => {
-  number.innerText = countStore.getState(); // 버튼들 누를 때마다 출력
-};
-countStore.subscribe(onChange);
 
-const handleAdd = () => {
-  countStore.dispatch({ type: "ADD" });
-};
+const store = createStore(reducer);
 
-const handleMinus = () => {
-  countStore.dispatch({ type: "MINUS" })
+store.subscribe(() => console.log(store.getState()));
+
+const dispatchAddToDo = text => {
+  store.dispatch(addToDo(text));
 };
 
-add.addEventListener("click", handleAdd );
-minus.addEventListener("click", handleMinus );
-// 내가 store, dispatch, action을 말하면 리덕스가 countModifier을 부름
-// dispatch와 함께 counModifier로 메세지를 보내는거
+const dispatchDeleteToDo = e => {
+  const id = parseInt(e.target.parentNode.id);
+  store.dispatch(deleteToDo(id));
+};
 
-// console.log(countStore);
-// 콘솔에 countStore 찍고 getState 들어가서 보면 hello 없는데
-// countStore.getState() 찍으면 hello만 딱 나옴
+const paintToDos = () => {
+  const toDos = store.getState();
+  ul.innerHTML = "";  // toDos.forEach에서 paint 해주기 전에 paint된 ul안의 li들 없애줌
+  toDos.forEach(toDo => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.innerText = "DEL";
+    btn.addEventListener("click", dispatchDeleteToDo);
+    li.id = toDo.id;
+    li.innerText = toDo.text;
+    li.appendChild(btn);
+    ul.appendChild(li);
+    console.log(li);
+    console.log(ul);
+  });
+}
+
+store.subscribe(paintToDos);
+
+
+const onSubmit = e => {
+  e.preventDefault();
+  const toDo = input.value;
+  input.value = "";
+  dispatchAddToDo(toDo);
+};
+
+form.addEventListener("submit", onSubmit);
