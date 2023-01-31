@@ -1,8 +1,9 @@
-replace와 replaceAll
+replace와 replaceAll과 replaceFirst
 -------
 
 replace(변환하고자 하는 문자열, 변환할 문자 값)  
 replaceAll(변환하고자 하는 문자열, 변환할 문자 값)  
+replaceFirst(변화하고자 하는 문자열, 변환할 문자 값)
 
 ```
 String str1 = "aaaa";
@@ -13,10 +14,10 @@ System.out.println(str1.replac3All("aa", "b");  // bb
 ```
 String str2 = "자바 코딩";
 System.out.println(str2.replace("바 코", "good");  // 자good딩
-System.out.println(str2.replaceAll("바 코", "good");  // 자good딩  
+System.out.println(str2.replaceAll("바 코", "good");  // 자good딩  ㅊ
 ```
 
-### -> 똑같은 결과 출력하는데 무슨 차이가 있다는 거지??  
+### -> replace와 replaceAll이 똑같은 결과 출력하는데 무슨 차이가 있다는 거지??  
 -> 가장 큰 차이는 입력 인자 값의 형태!!  
 replace는 Char  
 replaceAll은 String (정규표현식이라 부르는 형식의 일자값 사용 가능)  
@@ -40,5 +41,15 @@ System.out.println(str3.replac("abc","묭묭묭").replace("hij","묭묭묭");
 
 -> 되긴 하지만 너무 번거롭고 불편!!  
 + 대상 문자열이 어떤 형태인지 모를 때는 replace() 함수만 사용하기엔 무리  
+
+### 그럼 replaceFirst는 언제 사용하지?!  
+-> replaceFirst는 이름처럼 첫번째 발견되는 타겟만 치환!!  
+```
+String str4 = "a, b, c, d, e";
+System.out.println(",", " ");
+// a b, c, d, e
+System.out.println(",", "");
+// ab, c, d, e
+```
 
 
