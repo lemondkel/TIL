@@ -1,7 +1,7 @@
-MyBatis Framework
+Thymeleaf 
 -----
 
-## • MyBatis Framework  
+## •Thymeleaf 
 ➢ **템플릿 엔진**의 일종으로, html태그에 속성을 추가해 페이지에 동적으로 값을 추가하거나 처리 가능!  
 
 ```
