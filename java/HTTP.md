@@ -31,7 +31,9 @@ HTTP
 ➢ Headers  
 ➢ Body  
 
-### ˚ Start Line  
+&nbsp;  
+
+### ◦◦ Start Line  
 ➢ HTTP request의 첫 라인  
 
 ```
@@ -39,25 +41,44 @@ GET/searchHTTP/1.1
 ```
 -> Start Line도 3부분으로 구성!!  
 
-#### ‣ HTTP Method  
--> 해당 request가 의도한 action을 정의하는 부분!  
-(ex. GET, POST, PUT, DELETE)  
+&nbsp;  
 
-#### ‣ Request target  
--> 해당 request가 전송되는 목표 URI  
-(ex. /login)  
+> #### ‣ HTTP Method  
+> -> 해당 request가 의도한 action을 정의하는 부분!  
+> (ex. GET, POST, PUT, DELETE)  
 
-#### ‣ HTTP version  
--> 그냥 HTTP 버전!  
+> #### ‣ Request target  
+> -> 해당 request가 전송되는 목표 URI  
+> (ex. /login)  
+
+> #### ‣ HTTP version  
+> -> 그냥 HTTP 버전!  
 
 &nbsp;  
 
-### ˚ Headers  
+### ◦◦ Headers  
 ➢ 해당 **request에 대한 추가 정보**를 담고있는 부분!!
 (request 메시지 body의 총 길이 등등)  
 ➢ `Key:value` 값으로 되어있음!  
 ➢ Header도 크게 3부분으로 나뉨!  
-(genral headers, request headers, entity headers)  
+
+&nbsp;  
+
+> #### ‣ 일반 헤더 (General Header)  
+> ➢ 전송되는 HTTP 본문 컨텐츠와 관련X!  
+> -> 요청/응답이 생성된 날짜, 시간 등 같은 HTTP 통신에 대한 일반적인 정보 포함!!  
+> (HTTP 요청/응답 메시지에 공통으로 사용됨)  
+
+> #### ‣ 요청/응답 헤더 (Request/Response Header)  
+> ➢ 요청 헤더 : 요청한 URL, 메소드, 요청 생성에 사용되니 브라우저 및 기타 정보와 같은 요청에 대한 정보 포함!  
+> ➢ 응답 헤더 : 사용자가 특정 페이지/리소스에 대한 요청을 보낸 후 서버에서 브라우저에 의해 수신되며, 컨텐츠에 사용된 인코딩, 서버 시스템에서 응답 생성하는데 사용되는 서버 소프트웨어 및 기타 정보 포함!!  
+> -> 대부분의 사이트는 해커가 서버에서 어떤 소프트웨어 사용되는지 알기 어렵게 서버 정보 숨김!  
+> (웹 서버 구성 파일에 설정 가능)  
+
+> #### ‣ 엔티티 헤더 (Entity Header)  
+> ➢ 실제 메시지 또는 전송 중인 HTTP 본문에 대한 정보 포함!!  
+> -> 컨텐츠 길이, 컨텐츠 언어, 인코딩, 만료 날짜 및 기타 중요한 정보 등등  
+
 
 ```
 Accept: */*
@@ -69,31 +90,31 @@ Host: google.com
 User-Agent: HTTPie/0.9.3
 ```  
 
-#### ˚ 자주 사용되는 header 정보  
+### ◦◦ 자주 사용되는 header 정보  
 #### ‣ Host 
-➢ 요청이 전송되는 target의 host URL  
-(ex. google.com)  
+> ➢ 요청이 전송되는 target의 host URL  
+> (ex. google.com)  
 
 #### ‣ User-Agent  
-➢ 요청을 보내는 클라이언트에 대한 정보  
-(ex. 웹브라우저에 대한 정보)  
+> ➢ 요청을 보내는 클라이언트에 대한 정보  
+> (ex. 웹브라우저에 대한 정보)  
 
 #### ‣ Accept  
-➢ 해당 요청이 받을 수 있는 응답 타입  
+> ➢ 해당 요청이 받을 수 있는 응답 타입  
 
 #### ‣ Connection  
-➢  해당 요청이 끝난 후에 클라이언트와 서버가 계속해서 네트워크 연결 유지할 건지 끊은 건지 지시!  
+> ➢  해당 요청이 끝난 후에 클라이언트와 서버가 계속해서 네트워크 연결 유지할 건지 끊은 건지 지시!  
 
 #### ‣ Content-Type  
-➢ 해당 요청이 보내는 메시지 body의 타입  
-(ex. JSON을 보내면 application/json.)  
+> ➢ 해당 요청이 보내는 메시지 body의 타입  
+> (ex. JSON을 보내면 application/json.)  
 
 #### ‣ Content-Length  
-➢ 메시지 body의 길이  
+> ➢ 메시지 body의 길이  
 
 &nbsp;  
 
-### ˚ Body  
+### ◦◦ Body  
 ➢ 해당 request의 실제 메시지/내용!  
 -> Body 없는 request들도 많음!! 
 (GET request들은 대부분 body 없는 경우 많음!)  
@@ -124,26 +145,26 @@ User-Agent: HTTPie/0.9.3
 ➢ Headers  
 ➢ Body  
 
-### ˚ Status Line  
+### ◦◦ Status Line  
 ➢ reponse의 상태를 간략하게 나타내줌!  
 ```
 HTTP/1.1 404 Not Found
 ```
 -> 얘 또한 3부분!  
 
-#### ‣ HTTP 버전  
+> #### ‣ HTTP 버전  
 
-#### ‣ Status code  
-➢ 응답 상태를 나타내는 코드!  
+> #### ‣ Status code  
+> ➢ 응답 상태를 나타내는 코드!  
 
-#### ‣ Status text  
-➢ 응답 상태 간략히 설명!  
+> #### ‣ Status text  
+> ➢ 응답 상태 간략히 설명!  
 
-### ˚ Headers  
+### ◦◦ Headers  
 ➢ request의 headers와 동일  
 -> 대신 `User-Agent` 대신 `Server` 헤더 사용!!  
 
-### ˚ Body  
+### ◦◦ Body  
 ➢ request의 bodt와 일반적으로 동일  
 -> 얘도 데이터 전송할 필요 없으면 body 비어있음!  
 
