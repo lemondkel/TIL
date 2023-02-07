@@ -29,6 +29,86 @@ DML
 
 &nbsp;  
 
+-----
+### WHERE절 (⭐️)  
+➢ SELECT문으로 데이터를 조회할 때 **특정 조건을 기준으로 원하는 행을 출력**하는데 사용!  
+```
+SELECT [조회할 열1 이름], [열2 이름], ...
+FROM [조회할 테이블 이름] 
+WHERE[조회할 행을 선별하기 위한 조건식];
+```
+-> 조건식 대입한 결과가 `참`인 경우에만 출력!!  
+
+ex)
+```
+SELECT * FROM employee 
+WHERE job = '사원';
+```
+-> job이 '사원'인 데이터만 조회!  
+
+&nbsp;  
+
+#### ‣ 기본 연산자 
+➢  `>`, `<`, `>=`, `<=`, `=`, `!`, `<>`  
+
+### ❓ 여러 개의 조건을 함께 사용해야 할 때?   
+#### ‣ 논리 연산자    
+➢ and : 둘 다 만족!  
+ex)
+```
+SELECT * FROM employee 
+WHERE job != '사장'
+AND salary >= 500;
+```
+-> '사장'직급이 아니면서 salary가 500 이상인 데이터에 대해서만 조회!  
+
+➢ or: 하나만 만족!  
+ex)
+```
+SELECT * FROM employee 
+WHERE (salary * 12) + isnull(commission, 0) <= 5500
+OR job = '사원';
+``` 
+-> commission을 포함한 연봉이 5500만원 이하이거나 '사원' 직급인 데이터 조회!  
+
+### ❓ 만약 A보다는 크고 B보다는 작은 데이터 조회하려면?!  
+#### ‣ BETWEEN A AND B  
+```
+SELECT * FROM employee
+WHERE salary BETWEEN 300 AND 500;
+``` 
+-> `AND`연산자만 사용했을 때보다 간결하고 직관적임!  
+```
+SELECT * FROM employee
+WHERE salary >= 300
+AND salary <= 500;
+```
+
+### ❓ 그럼 만약 salary가 300, 400, 500, 600인 데이터 조회하려면 어떡해??  
+```
+SELECT * FROM employee
+WHERE salary = 300
+OR salary = 400
+OR salary = 500
+OR salary = 600
+```
+-> 이렇게도 할 수 있지만 너무 길어ㅠㅠ  
+**=> IN 사용하자!**  
+
+
+#### ‣ IN  
+```
+SELECT * FROM employee 
+WHERE salary IN (300, 400, 500, 600);
+```
+-> 훨씬 간결 + 직관적!!!  
+
+
+&nbsp;  
+&nbsp;  
+
+-----
+
 ### ◦◦ INSERT    
 ➢ 데이터 삽입  
 #### ‣ 몇 개의 칼럼에만 데이터 삽입할 경우!  
