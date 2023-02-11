@@ -1,5 +1,54 @@
-compareTo()
+compare
 -----
+
+### 1. Comparable 인터페이스의 `compareTo()`메소드를 원하는 조건으로 오버라이드  
+### 2. 익명 인터페이스 java.util.Comparator를 구현한 class 내 `compare()`메소드를 원하는 정렬 조건으로 오버라이드하여 sort 메소드 호출시 구현한 Comparator 클래스 명시  
+(Arrays 클래스뿐 아니라 다른 자료구조나 Comparable Stream 등 Collection 다루는 정렬 메소드에 대해 적용 가능)  
+-> byte, int, char, double, short, long, float같은 Primitive Type의 배열에는 적용 불가!  
+=> Integer같은 Wrapper "Class" 이용!!  
+```
+Integer[] integerArr = new Integer[] {1,3,5,2,4};
+String[] stringArr = new String[] {"A","C","B","E","D"};
+
+Arrays.sort(integerArr, Comparator.reverseOrder()); // 내림차순!
+Arrays.sort(stringArr, Collections.reverseOrder()); // 내림차순!  
+```
+▽
+```
+integerArr : 5 4 3 2 1
+stringArr : E D C B A
+```
+-> FunctionallInterface `Comparator`, java.util.`Collections` 클래스의 `reverseOrder()`메소드를 사용해 **이미 내림차순으로 구현되어 있는 Comparator 반환!!**   
+-> 원하는 조건으로 정렬조건 적용하고 싶다면?!    
+=> `Comparator` 인터페이스의 `compare`메소드 오버라이드한 Class를 재정의해 넘겨주면 됨!!  
+
+&nbsp;  
+
+```
+class CustomComparator implements Comparator<String>{
+    @Override
+    public int compare(String o1, String o2){
+        return o2.compareTo(o1);    // 내림차순
+    }
+}
+
+String[] stringArr = new String[] {"A","C","B","E","D"};
+Arrays.sort(stringArr, new CustumComparator());
+```
+▽
+```
+stringArr : E D C B A
+```
+-> `Comparator` 구현 클래스 정의 없이 `Comparartor`인스턴스 생성과 동시에 `compare()`메소드를 오버라이드 하는 것도 가능!  
+```
+Arrays.sort(stringArr, new Comparator<String>(){
+    @Override
+    public int compare(String o1, String o2){
+        return o2.compareTo(o1);
+    }
+});
+```
+-------------
 
 ## • compareTo()  
 ➢ 두 개의 값을 비교하여 int 값으로 반환해주는 함수  
